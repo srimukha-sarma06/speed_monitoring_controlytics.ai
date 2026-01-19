@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Listings</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Dream Homes Realty</h1>
+    <form method="GET" action="/search">
+      <input type="text" name="q" placeholder="Search by city or type...">
+      <button type="submit">Search</button>
+    </form>
+  </header>
+
+  <main>
+    {% for property in properties %}
+    <div class="property">
+      <img src="/static/images/{{ property.image }}" alt="{{ property.title }}">
+      <h2>{{ property.title }}</h2>
+      <p><strong>Location:</strong> {{ property.location }}</p>
+      <p><strong>Price:</strong> ${{ property.price }}</p>
+      <p><strong>Type:</strong> {{ property.type }}</p>
+    </div>
+    {% endfor %}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dream Homes Realty</p>
+  </footer>
+</body>
+</html>
