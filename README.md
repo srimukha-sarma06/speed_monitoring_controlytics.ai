@@ -34,12 +34,22 @@ The core objective of this project was to build a localized, high-performance ed
 ## 📁 Directory Structure
 
 ```text
-├── app.py                  # Flask web server application and API routes
-├── main_edge_pipeline.py   # Core sensor fusion, synchronization, and event loop
-├── modules/
-│   ├── radar_interface.py  # RS485 communication, byte parsing, and threshold logic
-│   ├── vision_capture.py   # OpenCV RTSP buffer management and frame capture
-│   └── logger.py           # Handles saving violation metadata and images
-├── static/                 # CSS, HTML, and saved violation images for the dashboard
-├── templates/              # HTML templates for the Flask dashboard UI
-└── requirements.txt        # Python dependencies
+├── services/                       # Core logic and helper modules
+│   ├── get_speed_limit.py          # Retrieves configured speed thresholds
+│   ├── panel_config.py             # Handles system configuration settings
+│   ├── read_speed.py               # Radar telemetry extraction and parsing
+│   ├── record_hourly_stream.py     # Manages continuous video/data recording
+│   └── screenshots_annotations.py  # Handles frame capture and bounding box overlays
+├── static/                         # Frontend assets for the dashboard
+│   ├── logo.jpg
+│   └── main.css
+├── templates/                      # HTML templates for the Flask UI
+│   └── index.html
+├── .gitignore                      # Git ignore rules
+├── DOCUMENTATION.docx              # Detailed project documentation (Word)
+├── DOCUMENTATION.pdf               # Detailed project documentation (PDF)
+├── README.md                       # Project overview and setup instructions
+├── RestAPI.py                      # API endpoints for remote data retrieval
+├── app.py                          # Main Flask server application
+├── final-code.py                   # Primary execution script/entry point
+└── settings.txt                    # Configuration parameters
